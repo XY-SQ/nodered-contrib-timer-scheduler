@@ -11,6 +11,7 @@ Configure the node for the scheduled task based on the MQTT message received
 | "stop" | "TimerForTemp" | igenored \|\| null | igenored \|\| null |
 
 - JSON
+  Node input format for the sample
 ```json 
 {
   "command":"Execute the command",
