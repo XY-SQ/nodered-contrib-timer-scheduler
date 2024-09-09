@@ -1,0 +1,186 @@
+[
+    {
+        "id": "0f27b76657321cf4",
+        "type": "tab",
+        "label": "定时任务",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4a3eba624fe1ae3f",
+        "type": "mqtt in",
+        "z": "0f27b76657321cf4",
+        "name": "",
+        "topic": "setInterval",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "d0e119fd1a778cde",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "816e740940115c09",
+                "5edd4608ec58fd4d"
+            ]
+        ]
+    },
+    {
+        "id": "816e740940115c09",
+        "type": "debug",
+        "z": "0f27b76657321cf4",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9747657b634927b2",
+        "type": "mqtt out",
+        "z": "0f27b76657321cf4",
+        "name": "setInterval-pub",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d0e119fd1a778cde",
+        "x": 380,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1d19a63cd3c780c9",
+        "type": "inject",
+        "z": "0f27b76657321cf4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "setInterval",
+        "payload": "{\"command\":\"start\",\"name\":\"zhang-o1\",\"intervalTime\":5,\"payload\":{\"data\":\"hello,time-schedule\"}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "9747657b634927b2"
+            ]
+        ]
+    },
+    {
+        "id": "b470f7e7c9454bb1",
+        "type": "debug",
+        "z": "0f27b76657321cf4",
+        "name": "output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a3975ac501552724",
+        "type": "inject",
+        "z": "0f27b76657321cf4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "setInterval",
+        "payload": "{\"command\":\"stop\",\"name\":\"zhang-o1\",\"intervalTime\":3,\"payload\":{\"data\":\"hello,time-schedule\"}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "9747657b634927b2"
+            ]
+        ]
+    },
+    {
+        "id": "5edd4608ec58fd4d",
+        "type": "timerScheduler",
+        "z": "0f27b76657321cf4",
+        "name": "",
+        "x": 660,
+        "y": 320,
+        "wires": [
+            [
+                "b470f7e7c9454bb1"
+            ]
+        ]
+    },
+    {
+        "id": "d0e119fd1a778cde",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "111.229.106.226",
+        "port": "1883",
+        "clientid": "local_node_red",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
